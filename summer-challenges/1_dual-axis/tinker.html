@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='./tinker.css'>
+    <title>Try me: &ltdual-axis&gt</title>
+  </head>
+  <body>
+    <dual-axis id='subject'></dual-axis>
+    <form>
+      <fieldset>
+        <legend><h2>Settings</h2></legend>
+        <div class='settings-container'>
+          <fieldset>
+            <legend><b>Dimenstions</b></legend>
+            <div>
+              <label>Width (px): </label>
+              <input id='widthInput' type='number' min='0' value='500'>
+              <label>Height (px): </label>
+              <input id='heightInput' type='number' min='0' value='300'>
+              <label>Scale: </label>
+              <input id='scaleInput' type='number' min='0.01' value='1.00' step='.01'>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend><b>Speed</b></legend>
+            <div>
+              <label>Speed: </label>
+              <input id='speedInput' type='number' value='1.0' step='.1'>
+              <label>Acceleration: </label>
+              <input id='accInput' type='number' value='0.0' step='.1'>
+              <label>Max Speed: </label>
+              <input id='maxSpeedInput' type='number' value='1.0' step='.1'>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend><b>Axis Highlight</b></legend>
+              <div>
+                <label>No Highlight: </label>
+                <input id='noHighlight' name='highlight' type='radio' checked>
+                <label>Vertical Highlight: </label>
+                <input id='verticalHighlight' name='highlight' type='radio'>
+                <label>Horizontal Highlight: </label>
+                <input id='horizontalHighlight' name='highlight' type='radio'>
+                <label>Reverse Direction: </label>
+                <input id='spinInput' type='checkbox'>
+                <label>Highlight Colour: </label>
+                <input id='highlightColour' type='color' value='#55cc55'>
+              </div>
+          </fieldset>
+          <fieldset>
+            <legend><b>Colours</b></legend>
+            <div>
+              <label>Line Colour: </label>
+              <input id='lineColour' type='color' value='#000000'>
+              <label>Background Colour: </label>
+              <input id='bgColour' type='color' value='#ffffff'>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend><b>Misc</b></legend>
+            <div>
+              <label>Line thickness: </label>
+              <input id='weightInput' type='number' min='1' value='20'>
+              <label>Smoothness (min 20): </label>
+              <input id='detailInput' type='number' min='20' value='200' step='5'>
+            </div>
+          </fieldset>
+        </div>
+      </fieldset>
+    </form>
+  </body>
+  <script src='../custom-classes.js'></script>
+  <script src='./tinker-script.js'></script>
+</html>

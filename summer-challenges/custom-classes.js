@@ -72,9 +72,6 @@ class DualAxis extends HTMLElement{
     // Reset canvas
     this.canv.height += 0;
 
-    // Increment time
-    this.t += this.speed/60;
-
     // Adjust speed depending on acceleration
     this.speed = this.speed * this.acc;
 
@@ -84,6 +81,9 @@ class DualAxis extends HTMLElement{
         this.speed = this.maxSpeed;
       }
     }
+
+    // Increment time
+    this.t += this.speed/60;
 
     this.ctx.fillStyle = this.backgroundColour;
     this.ctx.fillRect(0, 0, this.canv.width, this.canv.height);

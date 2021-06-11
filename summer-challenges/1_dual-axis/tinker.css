@@ -1,0 +1,29 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+form {
+  width: 40%;
+}
+
+.settings-container > fieldset > div {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  grid-row-gap: .25rem;
+}
+
+.settings-container > fieldset {
+  margin: .5rem 0;
+}
+
+dual-axis {
+  border: 1px dashed black;
+}
+
+h2 {
+  margin: 0;
+}
