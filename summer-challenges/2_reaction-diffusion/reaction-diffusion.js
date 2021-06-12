@@ -20,12 +20,8 @@ class ReactDiffuse extends HTMLElement {
     // Set diffusion rates
     this.dA = this.getAttribute('dA') || 1.0;
     this.dB = this.getAttribute('dB') || .5;
-    this.feed = this.getAttribute('feed') || .0545;
-    this.kill = this.getAttribute('kill') || .062;
-
-
-
-    this.t = 0;
+    this.feed = Number(this.getAttribute('feed')) || .055;
+    this.kill = Number(this.getAttribute('kill')) || .062;
 
     // Set dimensions
     this.width = this.getAttribute('width') || 200;
@@ -45,9 +41,12 @@ class ReactDiffuse extends HTMLElement {
       }
     }
 
-    for (let i = Math.floor(this.width*40/100); i < this.width*60/100; i++) {
-      for (let j = Math.floor(this.height*40/100); j < this.height*60/100; j++) {
-        this.grid[i][j].b = 1;
+    // Seed canvas
+    const midHeight = Math.floor(this.height/2);
+    const midWidth = Math.floor(this.width/2);
+    for (let j = - 10; j < 10; j++) {
+      for (let i = - 10; i < 10; i++) {
+        this.grid[midWidth + i][midHeight + j].b = 1;
       }
     }
 
