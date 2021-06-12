@@ -11,4 +11,4 @@
 ## 2) Reaction-diffusion simulation
 
 - [Go to page](./2_reaction-diffusion)
-- [View code repo here] (https://github.com/UP940148/summer-programming-stuffs/tree/main/summer-challenges/2_reaction-diffusion)
+- [View code repo here](https://github.com/UP940148/summer-programming-stuffs/tree/main/summer-challenges/2_reaction-diffusion)
