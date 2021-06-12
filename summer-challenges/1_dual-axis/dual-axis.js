@@ -14,10 +14,6 @@ class DualAxis extends HTMLElement{
     super();
   }
 
-  attributeChangedCallback() {
-
-  }
-
   connectedCallback() {
 
     // Initialise
