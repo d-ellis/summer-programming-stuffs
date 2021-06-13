@@ -12,3 +12,9 @@
 
 - [Go to page](./2_reaction-diffusion)
 - [View code repo here](https://github.com/UP940148/summer-programming-stuffs/tree/main/summer-challenges/2_reaction-diffusion)
+
+
+## 3) Circle packing
+
+- [Go to page](./3_circle-packing)
+- [View code repo here](https://github.com/UP940148/summer-programming-stuffs/tree/main/summer-challenges/3_circle-packing)
