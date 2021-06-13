@@ -1,6 +1,8 @@
 # Circle packing
 
-Just a bit of fun really. Rainbow circles will appear randomly on screen and will fill the canvas
+Just a bit of fun really. Rainbow circles will appear randomly on screen and will fill the canvas.
+
+The circles will be assigned a colour based on the position of their centre. x position corresponds to the hue, whilst y position corresponds to lightness.
 
 ## Pages
 
