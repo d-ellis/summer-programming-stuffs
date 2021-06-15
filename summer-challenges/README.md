@@ -18,3 +18,8 @@
 
 - [Go to page](./3_circle-packing)
 - [View code repo here](https://github.com/UP940148/summer-programming-stuffs/tree/main/summer-challenges/3_circle-packing)
+
+## 4) Flocking
+
+- [Go to page](./4_flocking)
+- [View code repo here](https://github.com/UP940148/summer-programming-stuffs/tree/main/summer-challenges/4_flocking)
