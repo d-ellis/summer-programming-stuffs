@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='./simulation.css'>
+  </head>
+  <body>
+    <main id='container'>
+      <div id='alignment'>
+        <label>Alignment multiplier</label><br>
+        <input type='range' id='alignInput' min='0' max='2' step='0.01' value='1.00'>
+        <label id='alignVal'>1.00</label>
+      </div>
+      <div id='cohesion'>
+        <label>Cohesion multiplier</label><br>
+        <input type='range' id='cohereInput' min='0' max='2' step='0.01' value='1.00'>
+        <label id='cohereVal'>1.00</label>
+      </div>
+      <div id='separation'>
+        <label>Separation multiplier</label><br>
+        <input type='range' id='separateInput' min='0' max='2' step='0.01' value='1.00'>
+        <label id='separateVal'>1.00</label>
+      </div>
+      <div id='perception'>
+        <label>Perception range</label><br>
+        <input type='range' id='perceptInput' min='0' max='100' step='1' value='50'>
+        <label id='perceptVal'>50</label><br><br>
+
+        <input type='checkbox' id='showPercept'>
+        <label>Show perception field</label><br>
+
+        <input type='checkbox' id='showVelocity' checked>
+        <label>Show velocity</label>
+      </div>
+    </main>
+    <h3><a href='./'>Back to flocking</a></h3>
+  </body>
+  <script src='./boid.js'></script>
+  <script src='./simulation.js'></script>
+</html>
