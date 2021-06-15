@@ -90,7 +90,7 @@ function update() {
 
   // If limit was reached, end
   if (!valid) {
-    console.log('Packed');
+    console.log('Packed', circles.length, 'circles');
     return;
   }
 
