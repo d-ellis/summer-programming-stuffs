@@ -1,0 +1,29 @@
+.cell {
+  border: 1px solid #f5f5f5;
+}
+
+.cell.dead {
+  background-color: #000000;
+}
+
+.cell.alive {
+  background-color: #ffffff;
+}
+
+#field {
+  display: grid;
+}
+
+@media (min-aspect-ratio: 1/1) {
+  #field {
+    width: 80vh;
+    height: 80vh;
+  }
+}
+
+@media (max-aspect-ratio: 1/1) {
+  #field {
+    width: 80vw;
+    height: 80vw;
+  }
+}
