@@ -1,0 +1,42 @@
+#viewers {
+  display: flex;
+  justify-content: space-around;
+  top: 1vw;
+}
+
+#wheelContainer {
+  /*position: absolute;*/
+  width: 40vw;
+  height: 40vw;
+}
+
+#wheelCanv, #pointer {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+}
+
+#wheelCanv {
+  transition: all 2s ease-out;
+}
+
+#pointer {
+  /*border: 1px solid black;*/
+}
+
+#optionChanger {
+  width: 45vw;
+  height: 45vw;
+  /*border: 1px solid black;*/
+}
+
+#buttonBar {
+  margin-top: 1vh;
+  display: flex;
+  justify-content: center;
+}
+
+#spinWheel {
+  height: 6vh;
+  width: 7vw;
+}
