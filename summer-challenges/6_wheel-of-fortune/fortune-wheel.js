@@ -21,7 +21,8 @@ function loadColours() {
 
 function loadPicker() {
   loadColours();
-  const container = document.getElementById('optionChanger');
+  const container = document.getElementById('optionChoices');
+  container.innerHTML = '';
   for (let i = 0; i < options.length; i++) {
     const thisOption = document.createElement('div');
     thisOption.classList.add('colour-option');
@@ -46,8 +47,18 @@ function loadPicker() {
       loadWheel();
     })
 
+    const del = document.createElement('input');
+    del.type = 'button';
+    del.value = 'X';
+    del.addEventListener('click', () => {
+      options.splice(i, 1);
+      localStorage.setItem('options', JSON.stringify(options));
+      loadPicker();
+      loadWheel();
+    })
     thisOption.appendChild(optionName);
     thisOption.appendChild(optionColour);
+    thisOption.appendChild(del);
     container.appendChild(thisOption);
   }
 }
@@ -95,6 +106,17 @@ function loadWheel() {
 document.getElementById('spinWheel').addEventListener('click', () => {
   currentRotation += Math.random() * 360 + 1440;
   document.getElementById('wheelCanv').style.transform = `rotate(${currentRotation}deg)`;
+})
+
+document.getElementById('addOption').addEventListener('click', () => {
+  let newColour = Math.floor(Math.random()*16777215).toString(16);
+  if (newColour.length === 5) {
+    newColour = `0${newColour}`;
+  }
+  options.push({name: 'New option', colour: `#${newColour}`});
+  localStorage.setItem('options', JSON.stringify(options));
+  loadPicker();
+  loadWheel();
 })
 
 loadPicker();

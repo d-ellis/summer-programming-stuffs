@@ -1,6 +1,6 @@
 #viewers {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   top: 1vw;
 }
 
@@ -25,9 +25,14 @@
 }
 
 #optionChanger {
-  width: 45vw;
-  height: 45vw;
+  max-width: 45vw;
+  max-height: 40vw;
+  padding: 1vw;
+  overflow-y: auto;
   /*border: 1px solid black;*/
+}
+#optionChoices {
+  margin-bottom: 1vh;
 }
 
 #buttonBar {
