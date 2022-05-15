@@ -23,8 +23,20 @@
 <script src='./fortune-wheel.js'></script>
 -->
 <body>
-  <div id="flexContainer">
-    <wheel-of-fortune size=500 names="Discussion;Investigation;Practice;Production;Acquisistion;Collaboration" colours="#dbb659;#a1b058;#4072b1;#2c3d85;#c9453b;#d6944f" textColour="#ffffff"></wheel-of-fortune>
+  <div id='wheelContainer'>
+    <div class="mini-grid" style="width:300px;height:300px;">
+      <wheel-of-fortune size=150 names=" A; B; C; D" colours="#ff0000;#00ff00;#0000ff;#000000" textColour="#ffffff" style="width:150px; height:150px"></wheel-of-fortune>
+      <wheel-of-fortune size=150 names="#1;#2;#3;#4" colours="#9A0680;#79018C;#4C0070;#160040" textColour="#ffffff" style="width:150px; height:150px"></wheel-of-fortune>
+      <wheel-of-fortune size=150 names="Foo;Bar;Lorem;Ipsum" colours="#ffff00;#00ffff;#ff00ff;#e8e8e8" textColour="#000000" style="width:150px; height:150px"></wheel-of-fortune>
+      <wheel-of-fortune size=150 names="Test1;Test2;Test3;Test4" colours="#9a86a4;#b1bce6;#b7e5dd;#f1f0c0" textColour="#000000" style="width:150px; height:150px"></wheel-of-fortune>
+    </div>
+    <div class="mini-grid" style="width:600px;height:600px;">
+      <wheel-of-fortune size=300 names="2;4;8;16;32;64;128;256" colours="#064663;#ECB365" textColour="#ffffff"></wheel-of-fortune>
+      <wheel-of-fortune size=300 names="Discussion;Investigation;Practice;Production;Acquisistion;Collaboration" colours="#dbb659;#a1b058;#4072b1;#2c3d85;#c9453b;#d6944f" textColour="#ffffff"></wheel-of-fortune>
+      <wheel-of-fortune size=300 names="Red;Yellow;Green;Cyan;Blue;Magenta" colours="#ff0000;#ffff00;#00ff00;#00ffff;#0000ff;#ff00ff" textColour="#000000"></wheel-of-fortune>
+      <wheel-of-fortune size=300 names="Lorem;ipsum;dolor;sit;amet,;consectetur;adipiscing;elit,;sed;do;eiusmod;tempor;incididunt;ut;labore;et;dolore;magna;aliqua." colours="#9ADCFF;#FFF89A;#FFB2A6;#FF8AAE" textColour="#000000"></wheel-of-fortune>
+    </div>
+    <wheel-of-fortune size=600 names="Hartnell;Troughton;Pertwee;Baker(T);Davison;Baker(C);McCoy;McGann;Hurt;Eccleston;Tennant;Smith;Capaldi;Whittaker;Gatwa" colours="#e8e8e8;#8e8e8e;#4e563f;#61242d;#ffdccc;#e9c501;#4b2528;#1a1210;#7f5b34;#010300;#816141;#5a3a49;#3c2023;#bd976a;#302441" textColour="#006bcf"></wheel-of-fortune>
   </div>
 </body>
 <script src='./wheel-of-fortune.js'></script>

@@ -1,11 +1,18 @@
 const wheelOfFortuneTemplate = document.createElement('template');
 wheelOfFortuneTemplate.innerHTML = `
+<div class='container'>
 <canvas class='wheel-canv'></canvas>
 <canvas class='pointer-canv'></canvas>
+</div>
 <style>
-.wheel-canv, .pointer-canv {
+.container {
+  position: relative;
+  margin: 0;
+}
+.container canvas {
   position: absolute;
-
+  left: 0;
+  top: 0;
 }
 .wheel-canv {
   transition: all 2s ease-out;
@@ -48,10 +55,24 @@ class WheelOfFortune extends HTMLElement {
     this.pointer.setAttribute('width', this.size);
     this.pointer.setAttribute('height', this.size);
 
+    //this.pointer.style.left = `-${this.size}px`;
+    this.shadowRoot.querySelector('.container').style.width = `${this.size}px`;
+    this.shadowRoot.querySelector('.container').style.height = `${this.size}px`;
+
     this.names = this.getAttribute('names');
     this.names = this.names ? this.names.split(';') : [];
+
     this.colours = this.getAttribute('colours');
     this.colours = this.colours ? this.colours.split(';') : [];
+
+    let nameList = [...this.names];
+    let longest = nameList.sort(
+      function (a, b) {
+        return b.length - a.length;
+      }
+    )[0];
+    this.longest = longest.length;
+
   }
 
   createWheel() {
@@ -66,7 +87,7 @@ class WheelOfFortune extends HTMLElement {
     let segments = this.names.length;
     const arc = 2 * Math.PI / segments;
     for (let i = 0; i < segments; i++) {
-      const colourIndex = i >= this.colours.length ? i - this.colours.length : i;
+      const colourIndex = i % this.colours.length;
       // Create segment
       this.ctx.beginPath();
       this.ctx.fillStyle = this.colours[colourIndex];
@@ -75,15 +96,16 @@ class WheelOfFortune extends HTMLElement {
       this.ctx.fill();
     }
     this.ctx.textAlign = 'right';
+    this.ctx.textBaseline = 'middle';
     this.ctx.fillStyle = this.getAttribute('textColour') || '#000000';
-    this.ctx.font = `${this.size/15}px calibri`;
+    this.ctx.font = `${(this.size/2.1)/this.longest}px lucida console`;//`${this.size/15}px calibri`;
     for (let i = 0; i < segments; i++) {
       const angle = arc * (i + 0.5);
       this.ctx.save();
       this.ctx.beginPath();
       this.ctx.translate(this.wheel.width/2, this.wheel.width/2);
       this.ctx.rotate(angle);
-      this.ctx.fillText(this.names[i], 4*this.wheel.width/9, this.size/50);
+      this.ctx.fillText(this.names[i], 4*this.wheel.width/9, 0);
       this.ctx.restore();
     }
   }

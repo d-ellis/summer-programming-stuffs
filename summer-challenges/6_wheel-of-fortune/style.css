@@ -1,47 +1,10 @@
-#viewers {
-  display: flex;
-  justify-content: flex-start;
-  top: 1vw;
-}
-
 #wheelContainer {
-  /*position: absolute;*/
-  width: 40vw;
-  height: 40vw;
-}
-
-#wheelCanv, #pointer {
-  position: absolute;
-  width: inherit;
-  height: inherit;
-}
-
-#wheelCanv {
-  transition: all 2s ease-out;
-}
-
-#pointer {
-  /*border: 1px solid black;*/
-}
-
-#optionChanger {
-  max-width: 45vw;
-  max-height: 40vw;
-  padding: 1vw;
-  overflow-y: auto;
-  /*border: 1px solid black;*/
-}
-#optionChoices {
-  margin-bottom: 1vh;
-}
-
-#buttonBar {
-  margin-top: 1vh;
   display: flex;
-  justify-content: center;
 }
 
-#spinWheel {
-  height: 6vh;
-  width: 7vw;
+.mini-grid {
+  display: grid;
+  grid-gap: 0px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
 }
