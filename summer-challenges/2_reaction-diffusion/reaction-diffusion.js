@@ -71,8 +71,10 @@ class ReactDiffuse extends HTMLElement {
 
   diffuse() {
     let iD = this.ctx.createImageData(this.width, this.height);
-    for (let x = 0; x < this.width; x++) {
-      for (let y = 0; y < this.height; y++) {
+    let x = 0;
+    while (x < this.width) {
+      let y = 0;
+      while (y < this.height) {
         const current = this.grid[x][y];
         const reaction = current.a * current.b * current.b;
         const laplaced = this.laplace(x, y);
@@ -99,7 +101,9 @@ class ReactDiffuse extends HTMLElement {
           this.next[x][y].b = 1;
         }
         this.draw(x, y, iD);
+        y++;
       }
+      x++;
     }
     this.ctx.putImageData(iD, 0 , 0);
   }
