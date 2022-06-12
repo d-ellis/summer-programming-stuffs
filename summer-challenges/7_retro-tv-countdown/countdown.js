@@ -96,6 +96,8 @@ class RetroCountdown extends HTMLElement {
   update(timestamp) {
     const time = Number(this.getAttribute('seconds')) || 60;
     const fps = Number(this.getAttribute('fps')) || 20;
+    const fade = Number(this.getAttribute('fade-from')) || 0.9;
+    const fadeMult = 1/(1 - fade);
     if (!this.startTime) {
       this.startTime = timestamp;
       this.prev = 0;
@@ -115,11 +117,18 @@ class RetroCountdown extends HTMLElement {
       this.countdownCtx.arc(this.size/2, this.size/2, this.size/2, start, end);
       this.countdownCtx.fill();
     }
+    if (arc > fade) {
+      if (!this.volume) {
+        this.volume = this.shadowRoot.querySelector('#track').volume;
+      }
+      this.shadowRoot.querySelector('#track').volume = this.volume * (1-arc) * fadeMult;
+    }
     if (this.covered < Math.PI * 2) {
       requestAnimationFrame(t => {
         this.update(t);
       });
     } else {
+      this.countdownCtx.arc(this.size/2, this.size/2, this.size/2, 0, 2*Math.PI);
       this.shadowRoot.querySelector('#track').pause();
       this.shadowRoot.querySelector('#track').currentTime = 0;
     }
