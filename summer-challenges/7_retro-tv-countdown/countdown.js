@@ -1,7 +1,7 @@
 const countdownTemplate = document.createElement('template');
 countdownTemplate.innerHTML = `
 <div id='container'>
-<audio id='track' src='./chateux.mp3'></audio>
+<audio id='track' src='./chateux.mp3' loop></audio>
 <canvas id='countdown'></canvas>
 <canvas id='countdownCover'></canvas>
 <canvas id='text'></canvas>
@@ -49,6 +49,7 @@ class RetroCountdown extends HTMLElement {
 
   initialise() {
     this.size = this.getAttribute('size') || 500;
+    this.ringSize = this.getAttribute('diameter') || 400;
     this.textContent = this.getAttribute('text') || 'HELLO\\nWORLD!';
     const content = this.textContent.split('\\n');
     this.text.setAttribute('width', this.size);
@@ -71,9 +72,9 @@ class RetroCountdown extends HTMLElement {
       this.countdownCtx.translate(this.size/2, this.size/2);
       this.countdownCtx.rotate(i * arc);
       if (i % 5 === 0) {
-        this.countdownCtx.fillRect(-8,-300, 16, 40)
+        this.countdownCtx.fillRect(-8,-this.ringSize/2, 16, 40)
       } else {
-        this.countdownCtx.fillRect(-5, -300, 10, 25)
+        this.countdownCtx.fillRect(-5, -this.ringSize/2, 10, 25)
       }
       this.countdownCtx.restore();
     }
@@ -131,11 +132,7 @@ class RetroCountdown extends HTMLElement {
       if (!this.volume) {
         this.volume = this.track.volume;
       }
-      try {
-        this.track.volume = this.volume * (1-arc) * fadeMult;
-      } catch (e) {
-        
-      }
+      this.track.volume = this.volume * Math.max((1-arc) * fadeMult, 0);
     }
   }
 }
