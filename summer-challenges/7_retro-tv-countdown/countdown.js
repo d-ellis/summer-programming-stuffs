@@ -118,12 +118,6 @@ class RetroCountdown extends HTMLElement {
       this.countdownCtx.arc(this.size/2, this.size/2, this.size/2, start, end);
       this.countdownCtx.fill();
     }
-    if (arc > fade) {
-      if (!this.volume) {
-        this.track.volume;
-      }
-      this.track.volume = this.volume * (1-arc) * fadeMult;
-    }
     if (this.covered < Math.PI * 2) {
       requestAnimationFrame(t => {
         this.update(t);
@@ -132,6 +126,16 @@ class RetroCountdown extends HTMLElement {
       this.countdownCtx.arc(this.size/2, this.size/2, this.size/2, 0, 2*Math.PI);
       this.track.pause();
       this.track.currentTime = 0;
+    }
+    if (arc > fade) {
+      if (!this.volume) {
+        this.volume = this.track.volume;
+      }
+      try {
+        this.track.volume = this.volume * (1-arc) * fadeMult;
+      } catch (e) {
+        
+      }
     }
   }
 }
