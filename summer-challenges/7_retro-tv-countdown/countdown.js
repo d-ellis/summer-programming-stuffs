@@ -34,13 +34,14 @@ class RetroCountdown extends HTMLElement {
     this.countdownCtx = this.countdown.getContext('2d');
     this.cover = this.shadowRoot.querySelector('#countdownCover');
     this.coverCtx = this.cover.getContext('2d');
+    this.track = this.shadowRoot.querySelector('#track');
 
     this.initialise();
     this.covered = 0;
 
     this.addEventListener('click', () => {
       if (this.running) return;
-      this.shadowRoot.querySelector('#track').play();
+      this.track.play();
       this.update();
       this.running = true;
     });
@@ -97,6 +98,7 @@ class RetroCountdown extends HTMLElement {
     const time = Number(this.getAttribute('seconds')) || 60;
     const fps = Number(this.getAttribute('fps')) || 20;
     const fade = Number(this.getAttribute('fade-from')) || 0.9;
+    this.countdownCtx.fillStyle = '#090f73';
     const fadeMult = 1/(1 - fade);
     if (!this.startTime) {
       this.startTime = timestamp;
@@ -108,7 +110,6 @@ class RetroCountdown extends HTMLElement {
     const arc = elapsed/maxTime;
     if (elapsed - this.prev >= 1000/fps) {
       this.prev = elapsed;
-      this.countdownCtx.fillStyle = '#090f73';
       const start = -Math.PI/2;
       this.covered = (Math.PI*2)*arc;
       const end = start + (this.covered);
@@ -119,9 +120,9 @@ class RetroCountdown extends HTMLElement {
     }
     if (arc > fade) {
       if (!this.volume) {
-        this.volume = this.shadowRoot.querySelector('#track').volume;
+        this.track.volume;
       }
-      this.shadowRoot.querySelector('#track').volume = this.volume * (1-arc) * fadeMult;
+      this.track.volume = this.volume * (1-arc) * fadeMult;
     }
     if (this.covered < Math.PI * 2) {
       requestAnimationFrame(t => {
@@ -129,8 +130,8 @@ class RetroCountdown extends HTMLElement {
       });
     } else {
       this.countdownCtx.arc(this.size/2, this.size/2, this.size/2, 0, 2*Math.PI);
-      this.shadowRoot.querySelector('#track').pause();
-      this.shadowRoot.querySelector('#track').currentTime = 0;
+      this.track.pause();
+      this.track.currentTime = 0;
     }
   }
 }
